@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class MyArrayList<E> extends ArrayList<E> {
     private ArrayList<E> list= new ArrayList<>();
     public MyArrayList() {
-        // assert postcondition
+        // postcondition: crate an empty list
         super();
         assert list.isEmpty();
     }
 
     @Override
     public int size() {
-        // assert postcondition
+        // postcondition: return number of items
         // code
         int count=0;
         for(E e: list){
@@ -100,7 +100,7 @@ public class MyArrayList<E> extends ArrayList<E> {
     }
 
     public void show() {
-        for (E e : list) {
+        for (E e : this) {
             System.out.println(e);
         }
     }

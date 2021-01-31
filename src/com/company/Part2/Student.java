@@ -7,16 +7,4 @@ public class Student {
         this.id= id;
         this.name=name;
     }
-    public String toString(){
-        System.out.println("name: "+ this.getName()+", id: "+this.getId());
-        return null;
-    }
-
-    public String getName(){
-        return this.name;
-    }
-
-    public int getId(){
-        return this.id;
-    }
 }
