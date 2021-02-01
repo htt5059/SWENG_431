@@ -3,6 +3,8 @@ package com.company;
 import com.company.Part1.part1;
 import com.company.Part2.*;
 
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -21,4 +23,3 @@ public class Main {
         mal.show();
     }
 }
-

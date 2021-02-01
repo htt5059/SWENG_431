@@ -3,11 +3,10 @@ package com.company.Part2;
 import java.util.ArrayList;
 
 public class MyArrayList<E> extends ArrayList<E> {
-    private ArrayList<E> list= new ArrayList<>();
     public MyArrayList() {
         // postcondition: crate an empty list
         super();
-        assert list.isEmpty();
+        assert this.isEmpty();
     }
 
     @Override
@@ -15,10 +14,14 @@ public class MyArrayList<E> extends ArrayList<E> {
         // postcondition: return number of items
         // code
         int count=0;
-        for(E e: list){
+        for(E e: this){
             count++;
         }
-        assert count==list.size();
+        ArrayList<E> temp= new ArrayList<>();
+        for(E e: this){
+            temp.add(e);
+        }
+        assert count==temp.size();
         return count;
     }
 
@@ -27,29 +30,29 @@ public class MyArrayList<E> extends ArrayList<E> {
         // precondition: size>=0
         // code
         // postcondition: the fist element is the new element has been added and the size increases by 1
-        assert list.size()>=0;
-        if(list.size()==0) {
-            list.add(e);
+        assert this.size()>=0;
+        if(this.size()==0) {
+            this.add(e);
             return;
         }
         E a= e;
-        int prev_size=list.size();
+        int prev_size=this.size();
         ArrayList<E> t= new ArrayList<>();
         boolean check= false;
 
-        for(E i: list){
+        for(E i: this){
             t.add(i);
         }
         for(int i=0; i<this.size(); i++){
-            E temp=list.get(0);
-            list.set(0, e);
+            E temp=this.get(0);
+            this.set(0, e);
             e=temp;
         }
-        list.add(e);
-        if(a.equals(list.get(0)) && list.size()==prev_size+1){
+        this.add(e);
+        if(a.equals(this.get(0)) && this.size()==prev_size+1){
             int index=0;
             for(E i: t){
-                E c=list.get(index+1);
+                E c=this.get(index+1);
                 if(!i.equals(c)) {
                     check=false;
                     break;
@@ -67,9 +70,9 @@ public class MyArrayList<E> extends ArrayList<E> {
         // code
         // postcondition: new item in the last position and the size increases by one
         assert true;
-        int prev_size=list.size();
-        list.add(e);
-        assert e.equals(list.get(prev_size));
+        int prev_size=this.size();
+        this.add(e);
+        assert e.equals(this.get(prev_size));
     }
 
     // Delete my first element
@@ -77,14 +80,15 @@ public class MyArrayList<E> extends ArrayList<E> {
         // precondition: none
         // code
         // postcondition: Second items of prev list must be the first item of current list and size is deducted by 1
-        int prev_size=list.size();
-        ArrayList<E> t= new ArrayList<>();
-        E e=list.get(1);
-        for(int i=1; i<list.size(); i++){
-            t.add(list.get(i));
-        }
-        list=t;
-        assert (e.equals(list.get(0))) && list.size()==prev_size-1;
+        int prev_size=this.size();
+        /*MyArrayList<E> t= new MyArrayList<>();
+        E e=this.get(1);
+        for(int i=1; i<this.size(); i++){
+            t.add(this.get(i));
+        }*/
+        E e= this.get(1);
+        this.remove(0);
+        assert (e.equals(this.get(0))) && this.size()==prev_size-1;
     }
 
     // Delete my last element
@@ -93,10 +97,10 @@ public class MyArrayList<E> extends ArrayList<E> {
         // code
         // postcondition: the last item of prev list must be null and the size is deducted by 1
         assert true;
-        int prev_size=list.size();
-        E e=list.get(list.size()-1);
-        list.remove(list.size()-1);
-        assert list.size()==prev_size-1;
+        int prev_size=this.size();
+        E e=this.get(this.size()-1);
+        this.remove(this.size()-1);
+        assert this.size()==prev_size-1;
     }
 
     public void show() {

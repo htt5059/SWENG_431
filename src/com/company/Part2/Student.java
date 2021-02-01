@@ -7,4 +7,7 @@ public class Student {
         this.id= id;
         this.name=name;
     }
+    public String toString(){
+        return "Name: "+this.name+", ID: "+this.id+" ";
+    }
 }
