@@ -27,10 +27,10 @@ public class MyArrayList<E> extends ArrayList<E> {
 
     // Insert e as a new first element to mal
     public void insertFirst(E e) {
-        // precondition: size>=0
+        // precondition: size>=0 and e!=null
         // code
         // postcondition: the fist element is the new element has been added and the size increases by 1
-        assert this.size()>=0;
+        assert this.size()>=0 && e!=null;
         if(this.size()==0) {
             this.add(e);
             return;
@@ -66,10 +66,10 @@ public class MyArrayList<E> extends ArrayList<E> {
 
     // Insert e as a new last element
     public void insertLast(E e) {
-        // precondition: none
+        // precondition: e!=null
         // code
         // postcondition: new item in the last position and the size increases by one
-        assert true;
+        assert e!=null;
         int prev_size=this.size();
         this.add(e);
         assert e.equals(this.get(prev_size));
