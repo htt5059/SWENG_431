@@ -77,15 +77,11 @@ public class MyArrayList<E> extends ArrayList<E> {
 
     // Delete my first element
     public void deleteFirst() {
-        // precondition: none
+        // precondition: there is at least one item in the list
         // code
         // postcondition: Second items of prev list must be the first item of current list and size is deducted by 1
+        assert this.size()>=1;
         int prev_size=this.size();
-        /*MyArrayList<E> t= new MyArrayList<>();
-        E e=this.get(1);
-        for(int i=1; i<this.size(); i++){
-            t.add(this.get(i));
-        }*/
         E e= this.get(1);
         this.remove(0);
         assert (e.equals(this.get(0))) && this.size()==prev_size-1;
@@ -93,10 +89,10 @@ public class MyArrayList<E> extends ArrayList<E> {
 
     // Delete my last element
     public void deleteLast() {
-        // precondition: none
+        // precondition: there is at least one item in the list
         // code
         // postcondition: the last item of prev list must be null and the size is deducted by 1
-        assert true;
+        assert this.size()>=1;
         int prev_size=this.size();
         E e=this.get(this.size()-1);
         this.remove(this.size()-1);
